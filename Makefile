@@ -14,7 +14,7 @@ NAME = sudoku
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -Imlx
-LMLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+LMLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM = rm -f
 
 $(VERBOSE).SILENT:
@@ -44,7 +44,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJS)
 	clear;
-	$(CC) $(CFLAGS) $(OBJS) $(FT_PRINTF) $(LIBFT) $(INC) $(LMLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(FT_PRINTF) $(LIBFT) $(INC) $(LMLX_FLAGS) -o $(NAME) -L ./minilibx_opengl_20191021
 	echo "\x1b[36m[SUDOKU COMPILED]\x1b[0m"
 
 $(OBJ_PATH)/%.o : $(SRC_PATH)/%.c
